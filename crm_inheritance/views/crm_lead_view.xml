@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="view_crm_lead_inherit">
+          <field name="name">crm.lead.inherit.form</field>
+          <field name="model">crm.lead</field>
+          <field name="inherit_id" ref="crm.crm_lead_view_form"></field>
+          <field name="arch" type="xml">
+              <xpath expr="//notebook" position="inside">
+                  <page name="Check" string="Checklist">
+                      <group>
+                          <field string="Progress" name="progress" id="progress" widget="progressbar"></field>
+                      </group>
+                      <group>
+                          <field name="check_ids" id="check" widget="many2many_checkboxes" options="{'no_create_edit' : True}" ></field>
+                      </group>
+                  </page>
+              </xpath>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="view_kanban_inherit">
+          <field name="name">crm.lead.inherit.kanban</field>
+          <field name="model">crm.lead</field>
+          <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"></field>
+          <field name="arch" type="xml">
+              <xpath expr="//div[@class='oe_kanban_footer']" position="after">
+                  <div>
+                      <field name="progress" widget="progressbar"></field>
+                  </div>
+              </xpath>
+          </field>
+      </record>
+  </data>
+</odoo>
