@@ -25,7 +25,7 @@ class CrmLead(models.Model):
 
 
 class CheckList(models.Model):
-    # _inherit = 'crm.lead'
+    
     _name = "check.list"
     _description = "Checklist"
 
